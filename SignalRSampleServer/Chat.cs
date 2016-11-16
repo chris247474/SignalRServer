@@ -8,8 +8,14 @@ namespace SignalRSampleServer
 {
     public class ChatHub : Hub
     {
+        //for communicating with certain clients or groups of clients
+        //https://www.asp.net/signalr/overview/guide-to-the-api/mapping-users-to-connections
+
         public void SendToSecretFilesClient(PostItem message)
         {
+            //get client's ID via
+            //Context.ConnectionId
+
             Clients.All.messageReceived(message);
         }
         public void SendComentsToClients(CommentItem message)
